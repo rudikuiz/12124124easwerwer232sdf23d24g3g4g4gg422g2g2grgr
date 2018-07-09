@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/begron2"
+    tools:context="com.piramidsoft.wablastadmin.FragmentWasap">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/logopolisi" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/pengirim"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etNomor"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_text"
+            android:hint="@string/exp"
+            android:paddingLeft="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/teks"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_text"
+            android:gravity="top|left"
+            android:inputType="textMultiLine"
+            android:minLines="5"
+            android:padding="3dp"
+            android:text="@string/teks" />
+
+        <Button
+            android:id="@+id/btSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ripple_blue"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/blast"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+</RelativeLayout>

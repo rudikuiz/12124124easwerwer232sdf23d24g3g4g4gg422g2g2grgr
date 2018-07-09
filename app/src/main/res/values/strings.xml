@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">WaBlastAdmin</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="blast">Blast</string>
+    <string name="logs">Logs</string>
+    <string name="satu">1. Device akan membaca nomor WhatsApp di sekitar dalam Radius 1 Kilo Meter</string>
+    <string name="dua">2. Kemudian, device mengirim daftar nomer yang telah ditangkap oleh Device ke Sistem Aplikasi WhatsApp Broadcast</string>
+    <string name="tiga">3. Dalam sentuhan akhir, Sistem akan memBroadcast Pesan anda ke seluruh Nomor WhatsApp dalam Radius tersebut.</string>
+    <string name="pengirim">Pengirim</string>
+    <string name="teks">Teks</string>
+    <string name="exp">0894567xxx</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="count">Count</string>
+    
+</resources>
