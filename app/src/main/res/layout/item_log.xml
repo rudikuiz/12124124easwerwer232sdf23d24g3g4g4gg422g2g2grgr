@@ -64,6 +64,20 @@
             android:padding="10dp"
             android:gravity="center"/>
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/etStatus"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center"/>
+
     </LinearLayout>
 
     <View

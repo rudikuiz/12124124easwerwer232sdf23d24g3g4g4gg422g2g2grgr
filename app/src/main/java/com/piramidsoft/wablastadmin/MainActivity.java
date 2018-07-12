@@ -46,6 +46,25 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter.addFragments(new FragmentLogs(), "Logs");
         viewPagerHome.setAdapter(pagerAdapter);
 
+        viewPagerHome.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+                getSupportActionBar().setTitle(pagerAdapter.getPageTitle(position));
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
     }
 
     @OnClick({R.id.lin1, R.id.lin2, R.id.lin3})

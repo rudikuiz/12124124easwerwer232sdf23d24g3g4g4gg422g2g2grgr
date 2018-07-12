@@ -6,7 +6,7 @@ package com.piramidsoft.wablastadmin.Model;
  */
 
 public class LogModel {
-    String tgl,pengirim,teks,count;
+    String tgl,pengirim,teks,count,status;
 
     public LogModel() {
     }
@@ -48,5 +48,13 @@ public class LogModel {
 
     public void setCount(String count) {
         this.count = count;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
