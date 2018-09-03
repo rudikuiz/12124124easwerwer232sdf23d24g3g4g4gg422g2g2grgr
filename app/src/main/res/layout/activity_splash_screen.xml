@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash"
+    android:background="@drawable/bg12"
+    android:gravity="center"
     tools:context="com.piramidsoft.wablastadmin.SplashScreen">
 
+    <ImageView
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/polisi"
+        android:adjustViewBounds="true"
+
+        />
 </RelativeLayout>

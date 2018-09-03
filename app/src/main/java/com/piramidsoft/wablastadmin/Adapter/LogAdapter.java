@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 
 public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogHolder> {
 
+
     private ArrayList<LogModel> arrayList;
     private Context context;
 
@@ -44,7 +45,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogHolder> {
         holder.etTeks.setText(arrayList.get(position).getTeks());
         holder.etCount.setText(arrayList.get(position).getCount());
         holder.etStatus.setText(arrayList.get(position).getStatus());
-
+        holder.etInterval.setText(arrayList.get(position).getInterval());
     }
 
     @Override
@@ -63,7 +64,8 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogHolder> {
         TextView etCount;
         @BindView(R.id.etStatus)
         TextView etStatus;
-
+        @BindView(R.id.etInterval)
+        TextView etInterval;
 
         public LogHolder(View itemView) {
             super(itemView);

@@ -8,12 +8,15 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/logopolisi" />
+        android:paddingTop="70dp"
+        android:src="@drawable/polisi" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -33,6 +36,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:padding="5dp"
             android:focusable="false"
             android:textColor="@android:color/darker_gray"
             android:id="@+id/etNomor"
@@ -54,17 +58,17 @@
         <EditText
             android:id="@+id/etText"
             android:layout_width="500dp"
-            android:layout_height="wrap_content"
+            android:layout_height="350dp"
             android:background="@drawable/border_text"
             android:gravity="top|left"
-            android:inputType="textMultiLine"
             android:minLines="15"
-            android:padding="3dp"
-            android:hint="@string/teks" />
+            android:padding="5dp"
+            android:hint="@string/teks"
+            android:inputType="textMultiLine|textNoSuggestions"/>
 
         <Button
             android:id="@+id/btSubmit"
-            android:layout_width="wrap_content"
+            android:layout_width="500dp"
             android:layout_height="40sp"
             android:layout_marginTop="10dp"
             android:background="@drawable/ripple_green"
@@ -72,6 +76,16 @@
             android:paddingRight="20dp"
             android:text="@string/blast"
             android:textColor="@color/white" />
+        <Button
+            android:background="@drawable/ripple_red"
+            android:textColor="@android:color/holo_red_dark"
+            android:id="@+id/btClear"
+            android:layout_width="500dp"
+            android:layout_height="40sp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/clear" />
     </LinearLayout>
 
 

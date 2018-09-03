@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.piramidsoft.wablastadmin.Utils.ViewPagerAdapter;
 
@@ -29,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout lin3;
     @BindView(R.id.viewPagerHome)
     ViewPager viewPagerHome;
+    @BindView(R.id.label1)
+    TextView label1;
+    @BindView(R.id.label2)
+    TextView label2;
+    @BindView(R.id.label3)
+    TextView label3;
     private ViewPagerAdapter pagerAdapter;
 
     @Override
@@ -36,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        lin1.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        lin2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        lin3.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         initView();
     }
 
@@ -57,6 +67,23 @@ public class MainActivity extends AppCompatActivity {
 
                 getSupportActionBar().setTitle(pagerAdapter.getPageTitle(position));
 
+                switch (position) {
+                    case 0:
+                        lin1.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                        lin2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                        lin3.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                        break;
+                    case 1:
+                        lin1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                        lin2.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                        lin3.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                        break;
+                    case 2:
+                        lin1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                        lin2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                        lin3.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                        break;
+                }
             }
 
             @Override

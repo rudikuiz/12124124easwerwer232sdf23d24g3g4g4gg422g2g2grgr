@@ -52,6 +52,8 @@ public class FragmentWasap extends Fragment {
     @BindView(R.id.linearLayout)
     LinearLayout linearLayout;
     Unbinder unbinder;
+    @BindView(R.id.btClear)
+    Button btClear;
 
     private FragmentActivity mActivity;
     private OwnProgressDialog loading;
@@ -90,7 +92,6 @@ public class FragmentWasap extends Fragment {
 
                         Toast.makeText(mActivity, message, Toast.LENGTH_LONG).show();
 
-
                         try {
                             Socket mSocket = IO.socket(AppConf.SIGNALLING_URL);
                             mSocket.connect();
@@ -100,7 +101,7 @@ public class FragmentWasap extends Fragment {
                         } catch (URISyntaxException e) {
                             e.printStackTrace();
                         }
-                    }else{
+                    } else {
 
                         new AlertDialog.Builder(mActivity)
                                 .setMessage(message)
@@ -199,12 +200,20 @@ public class FragmentWasap extends Fragment {
         VolleyHttp.getInstance(mActivity).cancelPendingRequests(FragmentLogs.class.getSimpleName());
     }
 
-    @OnClick(R.id.btSubmit)
-    public void onViewClicked() {
 
-        if (!etText.getText().toString().isEmpty() && !etNomor.getText().toString().isEmpty()) {
+    @OnClick({R.id.btSubmit, R.id.btClear})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btSubmit:
+                if (!etText.getText().toString().isEmpty() && !etNomor.getText().toString().isEmpty()) {
 
-            Submit();
+                    Submit();
+                }
+                break;
+            case R.id.btClear:
+                etText.setText(null);
+                etText.requestFocus();
+                break;
         }
     }
 }

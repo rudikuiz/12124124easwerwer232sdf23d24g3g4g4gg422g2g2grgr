@@ -18,11 +18,9 @@ import android.view.ViewGroup;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.piramidsoft.wablastadmin.Adapter.LogAdapter;
 import com.piramidsoft.wablastadmin.Model.LogModel;
 import com.piramidsoft.wablastadmin.Utils.AppConf;
@@ -115,7 +113,7 @@ public class FragmentLogs extends Fragment {
                         String pesan = jos.getString("pesan");
                         String total = jos.getString("total");
                         String flag = jos.getString("flag");
-
+                        String interval = jos.getString("intervals");
 
                         LogModel model = new LogModel();
                         model.setTgl(created_at);
@@ -123,7 +121,7 @@ public class FragmentLogs extends Fragment {
                         model.setTeks(pesan);
                         model.setCount(total);
                         model.setStatus(flag);
-
+                        model.setInterval(interval);
                         dataSet.add(model);
                     }
 
@@ -135,15 +133,22 @@ public class FragmentLogs extends Fragment {
                     //ShowToast("Request Timeout");
                 }
 
+                try {
+                    Swipe.setRefreshing(false);
+                } catch (Exception e) {
 
-                Swipe.setRefreshing(false);
+                }
+
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                try {
+                    Swipe.setRefreshing(false);
+                } catch (Exception e) {
 
-                Swipe.setRefreshing(false);
+                }
             }
 
         }) {

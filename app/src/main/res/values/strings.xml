@@ -14,5 +14,7 @@
     <string name="gagal">Gagal menyambungakan ke server, Silahkan coba kembali</string>
     <string name="refresh">Refresh</string>
     <string name="status">Status</string>
+    <string name="interval">Interval</string>
+    <string name="clear">Clear</string>
 
 </resources>
