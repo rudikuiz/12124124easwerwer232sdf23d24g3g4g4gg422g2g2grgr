@@ -2,11 +2,13 @@ package com.piramidsoft.wablastadmin;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -25,6 +29,7 @@ import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
 import com.piramidsoft.wablastadmin.Utils.AppConf;
 import com.piramidsoft.wablastadmin.Utils.OwnProgressDialog;
+import com.piramidsoft.wablastadmin.Utils.SessionManager;
 import com.piramidsoft.wablastadmin.Utils.VolleyHttp;
 
 import org.json.JSONException;
@@ -54,6 +59,14 @@ public class FragmentWasap extends Fragment {
     Unbinder unbinder;
     @BindView(R.id.btClear)
     Button btClear;
+    @BindView(R.id.rb1)
+    RadioButton rb1;
+    @BindView(R.id.rb2)
+    RadioButton rb2;
+    @BindView(R.id.rb3)
+    RadioButton rb3;
+    @BindView(R.id.rbFreq)
+    RadioGroup rbFreq;
 
     private FragmentActivity mActivity;
     private OwnProgressDialog loading;
@@ -101,6 +114,21 @@ public class FragmentWasap extends Fragment {
                         } catch (URISyntaxException e) {
                             e.printStackTrace();
                         }
+
+
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                Intent intent = new Intent(mActivity, ProcessActivity.class);
+                                intent.putExtra("id", "0");
+                                intent.putExtra("frekuensi", getMhz());
+                                mActivity.startActivity(intent);
+
+                            }
+                        }, 2000);
+
+
                     } else {
 
                         new AlertDialog.Builder(mActivity)
@@ -134,9 +162,10 @@ public class FragmentWasap extends Fragment {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("pengirim", etNomor.getText().toString().trim());
                 params.put("pesan", etText.getText().toString().trim());
+                params.put("frekuensi", getMhz());
 
 
-//                AndLog.ShowLog("SUMIT", params.toString());
+//                Log.d("SUMIT", params.toString());
                 return params;
             }
         };
@@ -157,6 +186,7 @@ public class FragmentWasap extends Fragment {
                     JSONObject jo = new JSONObject(response);
                     String message = jo.getString("message");
                     etNomor.setText(message);
+                    new SessionManager(mActivity).setPhone(message);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -215,5 +245,19 @@ public class FragmentWasap extends Fragment {
                 etText.requestFocus();
                 break;
         }
+    }
+
+    public String getMhz(){
+
+        int radioButtonID = rbFreq.getCheckedRadioButtonId();
+        View radioButton = rbFreq.findViewById(radioButtonID);
+        int idx = rbFreq.indexOfChild(radioButton);
+
+        RadioButton r = (RadioButton) rbFreq.getChildAt(idx);
+        String selectedtext = r.getText().toString();
+
+        Log.d("SELD", selectedtext);
+
+        return selectedtext;
     }
 }

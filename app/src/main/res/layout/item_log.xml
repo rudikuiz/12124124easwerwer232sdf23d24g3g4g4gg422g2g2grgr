@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lyParent"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="wrap_content">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,6 +52,7 @@
             android:layout_weight="2"
             android:gravity="center"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:padding="10dp"
             />
 
@@ -59,6 +62,7 @@
             android:background="@android:color/darker_gray" />
 
         <TextView
+            android:layout_gravity="center"
             android:layout_margin="5dp"
             android:id="@+id/etCount"
             android:textStyle="bold"
@@ -74,6 +78,7 @@
             android:background="@android:color/darker_gray" />
 
         <TextView
+            android:layout_gravity="center"
             android:layout_margin="5dp"
             android:id="@+id/etStatus"
             android:textStyle="bold"
@@ -89,6 +94,7 @@
             android:background="@android:color/darker_gray" />
 
         <TextView
+            android:layout_gravity="center"
             android:id="@+id/etInterval"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

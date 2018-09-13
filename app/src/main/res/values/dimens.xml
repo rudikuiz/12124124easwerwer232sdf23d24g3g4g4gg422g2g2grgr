@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tx_xxxlarge">20sp</dimen>
+    <dimen name="tx_med">14sp</dimen>
+</resources>

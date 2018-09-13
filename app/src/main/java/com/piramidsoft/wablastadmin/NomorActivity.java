@@ -1,20 +1,14 @@
 package com.piramidsoft.wablastadmin;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -37,27 +31,27 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
-public class FragmentLogs extends Fragment {
+public class NomorActivity extends AppCompatActivity {
 
+    @BindView(R.id.linear)
+    LinearLayout linear;
     @BindView(R.id.rvLogs)
     RecyclerView rvLogs;
     @BindView(R.id.Swipe)
     SwipeRefreshLayout Swipe;
-    Unbinder unbinder;
+
     OwnProgressDialog loading;
     FragmentActivity mActivity;
     LogAdapter adapter;
     private boolean refresh;
     private ArrayList<LogModel> dataSet;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_logs, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        mActivity = getActivity();
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_nomor);
+        ButterKnife.bind(this);
 
         refresh = false;
         dataSet = new ArrayList<>();
@@ -82,15 +76,13 @@ public class FragmentLogs extends Fragment {
 
         });
 
-        LocalBroadcastManager.getInstance(mActivity).registerReceiver(onRefresh, new IntentFilter(getString(R.string.refresh)));
         getData();
-        return view;
     }
 
     private void getData() {
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConf.URL_LOGS, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConf.URL_TERKIRIM, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -113,16 +105,15 @@ public class FragmentLogs extends Fragment {
                         String pesan = jos.getString("pesan");
                         String total = jos.getString("total");
                         String flag = jos.getString("flag");
-                        String interval = jos.getString("intervals");
+
 
                         LogModel model = new LogModel();
-                        model.setId(id);
                         model.setTgl(created_at);
                         model.setPengirim(pengirim);
                         model.setTeks(pesan);
                         model.setCount(total);
                         model.setStatus(flag);
-                        model.setInterval(interval);
+
                         dataSet.add(model);
                     }
 
@@ -134,22 +125,15 @@ public class FragmentLogs extends Fragment {
                     //ShowToast("Request Timeout");
                 }
 
-                try {
-                    Swipe.setRefreshing(false);
-                } catch (Exception e) {
 
-                }
-
+                Swipe.setRefreshing(false);
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                try {
-                    Swipe.setRefreshing(false);
-                } catch (Exception e) {
 
-                }
+                Swipe.setRefreshing(false);
             }
 
         }) {
@@ -168,22 +152,5 @@ public class FragmentLogs extends Fragment {
         stringRequest.setTag(FragmentLogs.class.getSimpleName());
         VolleyHttp.getInstance(mActivity).addToRequestQueue(stringRequest);
 
-    }
-
-    public BroadcastReceiver onRefresh = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-            refresh = true;
-            getData();
-        }
-    };
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-        VolleyHttp.getInstance(mActivity).cancelPendingRequests(FragmentLogs.class.getSimpleName());
-        LocalBroadcastManager.getInstance(mActivity).unregisterReceiver(onRefresh);
     }
 }

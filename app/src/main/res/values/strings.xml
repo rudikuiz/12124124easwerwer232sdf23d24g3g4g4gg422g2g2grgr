@@ -16,5 +16,17 @@
     <string name="status">Status</string>
     <string name="interval">Interval</string>
     <string name="clear">Clear</string>
+    <string name="imei">IMEI</string>
+    <string name="nomor">Nomor</string>
+    <string name="imsi">IMSI</string>
+    <string name="report">Report</string>
+    <string name="foto_profil">Foto Profil</string>
+    <string name="nama">Nama</string>
+    <string name="lokasi">Lokasi</string>
+    <string name="foto">Foto</string>
+    <string name="title_activity_lokasi">Map</string>
+    <string name="wa">WA</string>
+    <string name="tg">TG</string>
+    <string name="frekuensi">Frekuensi</string>
 
 </resources>

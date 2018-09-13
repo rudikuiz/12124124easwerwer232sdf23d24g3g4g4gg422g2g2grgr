@@ -1,16 +1,13 @@
 package com.piramidsoft.wablastadmin.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.piramidsoft.wablastadmin.Model.LogModel;
-import com.piramidsoft.wablastadmin.ProcessActivity;
 import com.piramidsoft.wablastadmin.R;
 
 import java.util.ArrayList;
@@ -23,13 +20,12 @@ import butterknife.ButterKnife;
  * Updated by Muhammad Iqbal on 10/07/2018.
  */
 
-public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogHolder> {
-
+public class NomorAdapter extends RecyclerView.Adapter<NomorAdapter.LogHolder> {
 
     private ArrayList<LogModel> arrayList;
     private Context context;
 
-    public LogAdapter(ArrayList<LogModel> arrayList, Context context) {
+    public NomorAdapter(ArrayList<LogModel> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
@@ -42,24 +38,13 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogHolder> {
     }
 
     @Override
-    public void onBindViewHolder(LogHolder holder, final int position) {
+    public void onBindViewHolder(LogHolder holder, int position) {
         holder.etTanggal.setText(arrayList.get(position).getTgl());
         holder.etPengirim.setText(arrayList.get(position).getPengirim());
         holder.etTeks.setText(arrayList.get(position).getTeks());
         holder.etCount.setText(arrayList.get(position).getCount());
         holder.etStatus.setText(arrayList.get(position).getStatus());
-        holder.etInterval.setText(arrayList.get(position).getInterval());
 
-        holder.lyParent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(context, ProcessActivity.class);
-                intent.putExtra("id", arrayList.get(position).getId());
-                context.startActivity(intent);
-
-            }
-        });
     }
 
     @Override
@@ -68,8 +53,6 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogHolder> {
     }
 
     public class LogHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.lyParent)
-        LinearLayout lyParent;
         @BindView(R.id.etTanggal)
         TextView etTanggal;
         @BindView(R.id.etPengirim)
@@ -80,8 +63,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogHolder> {
         TextView etCount;
         @BindView(R.id.etStatus)
         TextView etStatus;
-        @BindView(R.id.etInterval)
-        TextView etInterval;
+
 
         public LogHolder(View itemView) {
             super(itemView);

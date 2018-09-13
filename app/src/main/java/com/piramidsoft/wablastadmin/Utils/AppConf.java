@@ -14,5 +14,9 @@ public class AppConf {
     public static final String URL_SENDBLAST = URL_SERV + "blast/sendblast";
     public static final String URL_PENGIRIM = URL_SERV + "blast/pengirim";
     public static final String URL_LOGS = URL_SERV + "blast/logs";
+    public static final String URL_LOGS_NUMBER = URL_SERV + "blast/logs_number";
+    public static final String URL_LOGS_NUMBER_DONE = URL_SERV + "blast/logs_number_done";
+    public static final String URL_SET_PROSES_DONE = URL_SERV + "blast/set_done";
+    public static final String URL_TERKIRIM = URL_SERV + "blast/terkirim";
 
 }

@@ -6,16 +6,28 @@ package com.piramidsoft.wablastadmin.Model;
  */
 
 public class LogModel {
-    String tgl,pengirim,teks,count,status,interval;
+    String id,tgl,pengirim,teks,count,status,interval;
 
     public LogModel() {
     }
 
-    public LogModel(String tgl, String pengirim, String teks, String count) {
+
+    public LogModel(String id, String tgl, String pengirim, String teks, String count, String status, String interval) {
+        this.id = id;
         this.tgl = tgl;
         this.pengirim = pengirim;
         this.teks = teks;
         this.count = count;
+        this.status = status;
+        this.interval = interval;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTgl() {

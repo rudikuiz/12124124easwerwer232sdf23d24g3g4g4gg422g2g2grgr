@@ -50,6 +50,69 @@
             android:layout_height="wrap_content"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
+            android:text="@string/frekuensi"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:focusable="false"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp">
+
+            <RadioGroup
+                android:id="@+id/rbFreq"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:theme="@style/MyRadioButtonStyle"
+                    android:buttonTint="@android:color/white"
+                    android:checked="true"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:text="Auto"
+                    android:id="@+id/rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <RadioButton
+                    android:theme="@style/MyRadioButtonStyle"
+                    android:layout_marginLeft="50dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:text="1800 MHz"
+                    android:id="@+id/rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <RadioButton
+                    android:theme="@style/MyRadioButtonStyle"
+                    android:layout_marginLeft="50dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:text="2100 MHz"
+                    android:id="@+id/rb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
             android:text="@string/teks"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -58,7 +121,7 @@
         <EditText
             android:id="@+id/etText"
             android:layout_width="500dp"
-            android:layout_height="350dp"
+            android:layout_height="250dp"
             android:background="@drawable/border_text"
             android:gravity="top|left"
             android:minLines="15"
