@@ -11,144 +11,191 @@
         android:layout_width="450dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
         android:adjustViewBounds="true"
         android:paddingTop="70dp"
         android:src="@drawable/polisi" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:text="@string/pengirim"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:padding="5dp"
-            android:focusable="false"
-            android:textColor="@android:color/darker_gray"
-            android:id="@+id/etNomor"
-            android:layout_width="500dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border_text"
-            android:paddingLeft="5dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:text="@string/frekuensi"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:padding="5dp"
-            android:focusable="false"
-            android:layout_width="500dp"
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp">
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <RadioGroup
-                android:id="@+id/rbFreq"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/pengirim"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etNomor"
+                android:layout_width="500dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_text"
+                android:focusable="false"
+                android:padding="5dp"
+                android:paddingLeft="5dp"
+                android:textColor="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/frekuensi"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="500dp"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:paddingLeft="5dp">
+
+                <RadioGroup
+                    android:id="@+id/rbFreq"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@android:color/white"
+                        android:checked="true"
+                        android:text="Auto"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:theme="@style/MyRadioButtonStyle" />
+
+                    <RadioButton
+                        android:id="@+id/rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:text="1800 MHz"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:theme="@style/MyRadioButtonStyle" />
+
+                    <RadioButton
+                        android:id="@+id/rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:text="2100 MHz"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:theme="@style/MyRadioButtonStyle" />
+
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/teks"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etText"
+                android:layout_width="500dp"
+                android:layout_height="250dp"
+                android:background="@drawable/border_text"
+                android:gravity="top|left"
+                android:hint="@string/teks"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:minLines="15"
+                android:padding="5dp" />
+
+            <Button
+                android:id="@+id/btSubmit"
+                android:layout_width="500dp"
+                android:layout_height="40sp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ripple_green"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/blast"
+                android:textColor="@color/white" />
+
+            <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:theme="@style/MyRadioButtonStyle"
-                    android:buttonTint="@android:color/white"
-                    android:checked="true"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    android:text="Auto"
-                    android:id="@+id/rb1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <Button
+                    android:id="@+id/btPhoto"
+                    android:layout_width="100dp"
+                    android:layout_height="40sp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ripple_red"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="@string/photo"
+                    android:textColor="@android:color/holo_red_dark" />
 
-                <RadioButton
-                    android:theme="@style/MyRadioButtonStyle"
-                    android:layout_marginLeft="50dp"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    android:text="1800 MHz"
-                    android:id="@+id/rb2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
 
-                <RadioButton
-                    android:theme="@style/MyRadioButtonStyle"
-                    android:layout_marginLeft="50dp"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    android:text="2100 MHz"
-                    android:id="@+id/rb3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <Button
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/btClear"
+                    android:layout_width="380dp"
+                    android:layout_height="40sp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ripple_red"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="@string/clear"
+                    android:textColor="@android:color/holo_red_dark" />
 
-            </RadioGroup>
-
+            </LinearLayout>
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:text="@string/teks"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="100dp">
 
-        <EditText
-            android:id="@+id/etText"
-            android:layout_width="500dp"
-            android:layout_height="250dp"
-            android:background="@drawable/border_text"
-            android:gravity="top|left"
-            android:minLines="15"
-            android:padding="5dp"
-            android:hint="@string/teks"
-            android:inputType="textMultiLine|textNoSuggestions"/>
+            <ImageView
+                android:id="@+id/imgPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-        <Button
-            android:id="@+id/btSubmit"
-            android:layout_width="500dp"
-            android:layout_height="40sp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ripple_green"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="@string/blast"
-            android:textColor="@color/white" />
-        <Button
-            android:background="@drawable/ripple_red"
-            android:textColor="@android:color/holo_red_dark"
-            android:id="@+id/btClear"
-            android:layout_width="500dp"
-            android:layout_height="40sp"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="@string/clear" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
 
