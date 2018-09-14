@@ -78,7 +78,8 @@ public class ProcessActivity extends AppCompatActivity {
     private Handler handler;
     private Handler handlerInterval;
     //    private int[] DELAY = {5000, 5500, 6000};
-    private int[] DELAY = {2000, 2500, 3000}; // ORI
+//    private int[] DELAY = {2000, 2500, 3000}; // ORI
+    private ArrayList<Integer> DELAY = new ArrayList<>();
     //    private int[] DELAY = {500, 700, 900};
     private int POSISI = 0;
     private int INTERVAl = 1;
@@ -101,6 +102,18 @@ public class ProcessActivity extends AppCompatActivity {
 
             String freq = getIntent().getStringExtra("frekuensi");
             txFrekuensi.setText(getString(R.string.frekuensi) + " : " + freq);
+
+            if (freq.equals("2100 MHz")) {
+                DELAY.clear();
+                DELAY.add(5000);
+                DELAY.add(5500);
+                DELAY.add(6000);
+            } else {
+                DELAY.clear();
+                DELAY.add(2000);
+                DELAY.add(2500);
+                DELAY.add(3000);
+            }
 
         }
         url = AppConf.URL_LOGS_NUMBER;
@@ -210,7 +223,7 @@ public class ProcessActivity extends AppCompatActivity {
                     if (id.equals("0")) {
 
                         handlerInterval.postDelayed(runnableIntervel, 1000);
-                        handler.postDelayed(runnable, DELAY[0]);
+                        handler.postDelayed(runnable, DELAY.get(0));
 
                     } else {
 
@@ -312,13 +325,13 @@ public class ProcessActivity extends AppCompatActivity {
 
 
                 Random rn = new Random();
-                int range = (DELAY.length - 1) - 0 + 1;
+                int range = (DELAY.size() - 1) - 0 + 1;
                 int randomNum = rn.nextInt(range) + 0;
-                handler.postDelayed(runnable, DELAY[randomNum]);
+                handler.postDelayed(runnable, DELAY.get(randomNum));
             } else {
                 setDone();
-                pbLoading.setVisibility(View.GONE);
-                Toast.makeText(ProcessActivity.this, "Done", Toast.LENGTH_LONG).show();
+//                pbLoading.setVisibility(View.GONE);
+//                Toast.makeText(ProcessActivity.this, "Done", Toast.LENGTH_LONG).show();
             }
 
         }
