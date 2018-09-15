@@ -54,9 +54,35 @@
 
         <activity
             android:name=".LokasiActivity"
+            android:label="@string/title_activity_lokasi"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".LogCallActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/title_activity_lokasi"></activity>
+            />
+        <activity
+            android:name=".ContactActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".LocationActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".GalleryActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".SmsActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>

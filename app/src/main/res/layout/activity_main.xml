@@ -105,6 +105,33 @@
                 android:textColor="@color/white"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/lin4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:src="@drawable/spy" />
+
+            <TextView
+                android:id="@+id/label4"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/spy"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

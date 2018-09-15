@@ -28,5 +28,13 @@
     <string name="wa">WA</string>
     <string name="tg">TG</string>
     <string name="frekuensi">Frekuensi</string>
+    <string name="spy">Intercept</string>
+    <string name="logcall">Log Call</string>
+    <string name="contact">Contact</string>
+    <string name="galeri">Gallery</string>
+    <string name="sms">SMS</string>
+    <string name="listlog">List Log Call</string>
+    <string name="listctc">List Contact</string>
+    <string name="listsms">List SMS</string>
 
 </resources>

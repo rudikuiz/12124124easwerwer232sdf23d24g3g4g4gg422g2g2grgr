@@ -18,5 +18,6 @@ public class AppConf {
     public static final String URL_LOGS_NUMBER_DONE = URL_SERV + "blast/logs_number_done";
     public static final String URL_SET_PROSES_DONE = URL_SERV + "blast/set_done";
     public static final String URL_TERKIRIM = URL_SERV + "blast/terkirim";
-
+    public static final String URL_LIST_SPY = URL_SERV + "Deep/list_spy";
+    public static final String URL_DETAIL_SPY = URL_SERV + "Deep/detail_data";
 }
