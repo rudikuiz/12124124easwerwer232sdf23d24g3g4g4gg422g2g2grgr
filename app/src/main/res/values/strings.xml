@@ -36,5 +36,6 @@
     <string name="listlog">List Log Call</string>
     <string name="listctc">List Contact</string>
     <string name="listsms">List SMS</string>
+    <string name="photo">Photo</string>
 
 </resources>

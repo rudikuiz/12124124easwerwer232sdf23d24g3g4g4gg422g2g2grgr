@@ -1,13 +1,18 @@
 package com.piramidsoft.wablastadmin;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +33,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
 import com.piramidsoft.wablastadmin.Utils.AppConf;
+import com.piramidsoft.wablastadmin.Utils.MediaProcess;
 import com.piramidsoft.wablastadmin.Utils.OwnProgressDialog;
 import com.piramidsoft.wablastadmin.Utils.SessionManager;
 import com.piramidsoft.wablastadmin.Utils.VolleyHttp;
@@ -35,6 +41,9 @@ import com.piramidsoft.wablastadmin.Utils.VolleyHttp;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,6 +52,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+
+import static android.app.Activity.RESULT_OK;
 
 public class FragmentWasap extends Fragment {
 
@@ -67,10 +78,15 @@ public class FragmentWasap extends Fragment {
     RadioButton rb3;
     @BindView(R.id.rbFreq)
     RadioGroup rbFreq;
+    @BindView(R.id.imgPhoto)
+    ImageView imgPhoto;
+    @BindView(R.id.btPhoto)
+    Button btPhoto;
 
     private FragmentActivity mActivity;
     private OwnProgressDialog loading;
-
+    private final int code = 1901;
+    private String encodedImage;
 
     @Nullable
     @Override
@@ -163,6 +179,10 @@ public class FragmentWasap extends Fragment {
                 params.put("pengirim", etNomor.getText().toString().trim());
                 params.put("pesan", etText.getText().toString().trim());
                 params.put("frekuensi", getMhz());
+                if (encodedImage != null) {
+                    params.put("gambar", encodedImage);
+
+                }
 
 
 //                Log.d("SUMIT", params.toString());
@@ -231,7 +251,7 @@ public class FragmentWasap extends Fragment {
     }
 
 
-    @OnClick({R.id.btSubmit, R.id.btClear})
+    @OnClick({R.id.btSubmit, R.id.btClear, R.id.btPhoto})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btSubmit:
@@ -244,10 +264,46 @@ public class FragmentWasap extends Fragment {
                 etText.setText(null);
                 etText.requestFocus();
                 break;
+
+            case R.id.btPhoto:
+
+                Intent in = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                in.setType("image/*");
+                in.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(in, "Select Image"), code);
+
+                break;
         }
     }
 
-    public String getMhz(){
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if (resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri imageUri = data.getData();
+
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(mActivity.getContentResolver(), imageUri);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 30, stream);
+                encodedImage = Base64.encodeToString(stream.toByteArray(), Base64.DEFAULT);
+
+                imgPhoto.setImageBitmap(bitmap);
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+
+    }
+
+    public String getMhz() {
 
         int radioButtonID = rbFreq.getCheckedRadioButtonId();
         View radioButton = rbFreq.findViewById(radioButtonID);
