@@ -2,11 +2,13 @@ package com.piramidsoft.wablastadmin;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -329,9 +331,27 @@ public class ProcessActivity extends AppCompatActivity {
                 int randomNum = rn.nextInt(range) + 0;
                 handler.postDelayed(runnable, DELAY.get(randomNum));
             } else {
+                pbLoading.setVisibility(View.GONE);
+                Toast.makeText(ProcessActivity.this, "Done", Toast.LENGTH_LONG).show();
+
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(ProcessActivity.this);
+                builder1.setMessage("Error 404");
+                builder1.setCancelable(true);
+
+                builder1.setPositiveButton(
+                        "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                            }
+                        });
+
+
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+
                 setDone();
-//                pbLoading.setVisibility(View.GONE);
-//                Toast.makeText(ProcessActivity.this, "Done", Toast.LENGTH_LONG).show();
+
             }
 
         }

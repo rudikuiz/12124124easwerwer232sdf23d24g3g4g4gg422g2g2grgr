@@ -103,8 +103,9 @@ public class LogCallActivity extends AppCompatActivity {
                         SpyModel modelMenu = new SpyModel();
                         modelMenu.setLogcall(json.getString("call"));
 
-
-                        arrayList.add(modelMenu);
+                        if(!json.getString("call").isEmpty()) {
+                            arrayList.add(modelMenu);
+                        }
                     }
                     adapter = new LogCallAdapter(arrayList, LogCallActivity.this);
                     rvLogs.setAdapter(adapter);

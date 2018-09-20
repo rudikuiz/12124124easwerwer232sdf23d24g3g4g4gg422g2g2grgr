@@ -105,7 +105,9 @@ public class SmsActivity extends AppCompatActivity {
                         modelMenu.setInbox(json.getString("sms"));
                         modelMenu.setNomor(json.getString("mobile_number"));
 
-                        arrayList.add(modelMenu);
+                        if(!json.getString("sms").isEmpty()) {
+                            arrayList.add(modelMenu);
+                        }
                     }
                     adapter = new SmsAdapter(arrayList, SmsActivity.this);
                     rvLogs.setAdapter(adapter);

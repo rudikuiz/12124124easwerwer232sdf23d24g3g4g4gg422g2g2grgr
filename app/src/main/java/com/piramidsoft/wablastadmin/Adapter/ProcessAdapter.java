@@ -19,6 +19,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.piramidsoft.wablastadmin.LokasiActivity;
 import com.piramidsoft.wablastadmin.Model.LogModel;
 import com.piramidsoft.wablastadmin.Model.ProcessModel;
@@ -62,7 +63,12 @@ public class ProcessAdapter extends RecyclerView.Adapter<ProcessAdapter.LogHolde
         holder.etNama.setText(arrayList.get(position).getNama());
 
 //        Glide.with(context).load(arrayList.get(position).getFoto()).placeholder(R.drawable.ic_profile).into(holder.imgPhoto);
-        Glide.with(context).load(arrayList.get(position).getFoto()).into(holder.imgPhoto);
+//        Glide.with(context).load(arrayList.get(position).getFoto()).into(holder.imgPhoto);
+
+        Glide.with(context).load(arrayList.get(position).getFoto())
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .into(holder.imgPhoto);
 
         holder.imgPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,16 +93,16 @@ public class ProcessAdapter extends RecyclerView.Adapter<ProcessAdapter.LogHolde
 
         ////////////////////
 
-        if(arrayList.get(position).getWa().equals("1")){
+        if (arrayList.get(position).getWa().equals("1")) {
             holder.imgWa.setImageResource(R.drawable.ic_check_mark);
-        }else{
+        } else {
             holder.imgWa.setImageResource(R.drawable.ic_failed);
         }
 
         ////////////////////
-        if(arrayList.get(position).getTg().equals("1")){
+        if (arrayList.get(position).getTg().equals("1")) {
             holder.imgTg.setImageResource(R.drawable.ic_check_mark);
-        }else{
+        } else {
             holder.imgTg.setImageResource(R.drawable.ic_failed);
         }
 

@@ -79,6 +79,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/lin3"
             android:layout_width="0dp"
             android:layout_height="match_parent"

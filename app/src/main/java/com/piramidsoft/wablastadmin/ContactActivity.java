@@ -105,7 +105,9 @@ public class ContactActivity extends AppCompatActivity {
                         modelMenu.setKontak(json.getString("kontak"));
 
 
-                        arrayList.add(modelMenu);
+                        if(!json.getString("kontak").isEmpty()) {
+                            arrayList.add(modelMenu);
+                        }
                     }
                     adapter = new KontakAdapter(arrayList, ContactActivity.this);
                     rvLogs.setAdapter(adapter);
