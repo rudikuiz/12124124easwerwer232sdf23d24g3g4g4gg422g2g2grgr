@@ -24,6 +24,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:visibility="gone"
                 android:textColor="@color/white"
                 android:layout_margin="5dp"
                 android:background="@drawable/rounded_header"
@@ -37,6 +38,7 @@
                 android:textStyle="bold" />
 
             <View
+                android:visibility="gone"
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="@android:color/darker_gray" />

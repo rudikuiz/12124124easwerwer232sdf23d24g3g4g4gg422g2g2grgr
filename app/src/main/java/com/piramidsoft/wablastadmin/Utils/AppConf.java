@@ -20,4 +20,6 @@ public class AppConf {
     public static final String URL_TERKIRIM = URL_SERV + "blast/terkirim";
     public static final String URL_LIST_SPY = URL_SERV + "Deep/list_spy";
     public static final String URL_DETAIL_SPY = URL_SERV + "Deep/detail_data";
+    public static final String URL_LOGS_PROCESS = URL_SERV + "blast/logs_number_process";
+
 }

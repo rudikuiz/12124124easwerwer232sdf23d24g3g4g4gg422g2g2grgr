@@ -94,16 +94,53 @@ public class ProcessAdapter extends RecyclerView.Adapter<ProcessAdapter.LogHolde
         ////////////////////
 
         if (arrayList.get(position).getWa().equals("1")) {
-            holder.imgWa.setImageResource(R.drawable.ic_check_mark);
+            if (arrayList.get(position).getWaSend().equals("1")) {
+                holder.imgWa.setImageResource(R.drawable.ic_check_mark_double);
+            } else {
+                holder.imgWa.setImageResource(R.drawable.ic_check_mark);
+            }
+
+        } else if (arrayList.get(position).getWa().equals("0")) {
+
+            holder.imgWa.setImageResource(R.drawable.ic_pending);
+
         } else {
-            holder.imgWa.setImageResource(R.drawable.ic_failed);
+
+            if (arrayList.get(position).getWaSend().equals("1")) {
+                holder.imgWa.setImageResource(R.drawable.ic_failed);
+
+            } else {
+                holder.imgWa.setImageResource(R.drawable.ic_pending);
+            }
         }
 
         ////////////////////
         if (arrayList.get(position).getTg().equals("1")) {
-            holder.imgTg.setImageResource(R.drawable.ic_check_mark);
-        } else {
-            holder.imgTg.setImageResource(R.drawable.ic_failed);
+
+            if (arrayList.get(position).getTgSend().equals("1")) {
+                holder.imgTg.setImageResource(R.drawable.ic_check_mark_double);
+            } else {
+                holder.imgTg.setImageResource(R.drawable.ic_check_mark);
+            }
+
+        } else if (arrayList.get(position).getTg().equals("0")) {
+
+            holder.imgTg.setImageResource(R.drawable.ic_pending);
+
+        }else {
+
+            if (arrayList.get(position).getTgSend().equals("1")) {
+                holder.imgTg.setImageResource(R.drawable.ic_failed);
+            } else {
+                holder.imgTg.setImageResource(R.drawable.ic_pending);
+            }
+        }
+
+
+        if(arrayList.get(position).isSelected()){
+            holder.lyParent.setBackgroundColor(Color.parseColor("#bf33cc33"));
+        }else{
+            holder.lyParent.setBackgroundColor(Color.WHITE);
         }
 
         ///////////////////
@@ -147,6 +184,8 @@ public class ProcessAdapter extends RecyclerView.Adapter<ProcessAdapter.LogHolde
         ImageView imgWa;
         @BindView(R.id.imgTg)
         ImageView imgTg;
+        @BindView(R.id.lyParent)
+        LinearLayout lyParent;
 
         public LogHolder(View itemView) {
             super(itemView);

@@ -32,6 +32,7 @@
                     android:orientation="horizontal">
 
                     <ImageButton
+                        android:layout_centerVertical="true"
                         android:id="@+id/btBack"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -48,6 +49,37 @@
                         android:textSize="@dimen/tx_xxxlarge"
                         android:textStyle="bold" />
 
+                    <ImageButton
+                        android:layout_marginRight="10dp"
+                        android:padding="10dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_arrow_up"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/btDown"
+                        android:id="@+id/btUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageButton
+                        android:layout_marginRight="10dp"
+                        android:padding="10dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_arrow_down"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/btSearch"
+                        android:id="@+id/btDown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageButton
+                        android:padding="10dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_search_white"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/btSearch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
                 </RelativeLayout>
 

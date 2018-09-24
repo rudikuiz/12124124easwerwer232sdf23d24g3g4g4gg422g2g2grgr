@@ -37,5 +37,7 @@
     <string name="listctc">List Contact</string>
     <string name="listsms">List SMS</string>
     <string name="photo">Photo</string>
+    <string name="masukkan_nomor">Silahkan masukkan nomor</string>
+    <string name="nomor_tidak_ditemukan">Nomor tidak ditemukan</string>
 
 </resources>

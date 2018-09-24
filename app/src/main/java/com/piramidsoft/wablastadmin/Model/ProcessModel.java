@@ -6,12 +6,13 @@ package com.piramidsoft.wablastadmin.Model;
  */
 
 public class ProcessModel {
-    String id, tgl, teks, imsi, nomor, status, foto, nama, lokasi, wa, tg;
+    String id, tgl, teks, imsi, nomor, status, foto, nama, lokasi, wa, tg, waSend, tgSend;
+    boolean selected;
 
     public ProcessModel() {
     }
 
-    public ProcessModel(String id, String tgl, String teks, String imsi, String nomor, String status, String foto, String nama, String lokasi, String wa, String tg) {
+    public ProcessModel(String id, String tgl, String teks, String imsi, String nomor, String status, String foto, String nama, String lokasi, String wa, String tg, String waSend, String tgSend, boolean selected) {
         this.id = id;
         this.tgl = tgl;
         this.teks = teks;
@@ -23,6 +24,9 @@ public class ProcessModel {
         this.lokasi = lokasi;
         this.wa = wa;
         this.tg = tg;
+        this.waSend = waSend;
+        this.tgSend = tgSend;
+        this.selected = selected;
     }
 
     public String getId() {
@@ -111,5 +115,29 @@ public class ProcessModel {
 
     public void setTg(String tg) {
         this.tg = tg;
+    }
+
+    public String getWaSend() {
+        return waSend;
+    }
+
+    public void setWaSend(String waSend) {
+        this.waSend = waSend;
+    }
+
+    public String getTgSend() {
+        return tgSend;
+    }
+
+    public void setTgSend(String tgSend) {
+        this.tgSend = tgSend;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }
