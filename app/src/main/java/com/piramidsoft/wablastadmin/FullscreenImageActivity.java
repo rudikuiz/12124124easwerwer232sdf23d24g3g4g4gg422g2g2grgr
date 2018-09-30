@@ -16,7 +16,7 @@ public class FullscreenImageActivity extends AppCompatActivity {
 
         ImageView imageView = (ImageView) findViewById(R.id.imgPhoto);
 
-        String img = getIntent().getStringExtra("url");
+        String img = getIntent().getStringExtra("url").replace("thumb_", "");
         Glide.with(FullscreenImageActivity.this).load(img).into(imageView);
         imageView.setOnTouchListener(new ImageMatrixTouchHandler(imageView.getContext()));
     }

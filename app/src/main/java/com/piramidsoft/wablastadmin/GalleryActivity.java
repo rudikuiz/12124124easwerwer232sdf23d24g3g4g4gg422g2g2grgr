@@ -70,7 +70,7 @@ public class GalleryActivity extends AppCompatActivity {
         imsi = intent.getStringExtra("imsi");
 
         gvFolder.setHasFixedSize(true);
-        GridLayoutManager layoutManager = new GridLayoutManager(GalleryActivity.this, 3,
+        GridLayoutManager layoutManager = new GridLayoutManager(GalleryActivity.this, 4,
                 GridLayoutManager.VERTICAL, false);
         gvFolder.setLayoutManager(layoutManager);
 

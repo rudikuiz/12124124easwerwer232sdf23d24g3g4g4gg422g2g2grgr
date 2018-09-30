@@ -305,13 +305,11 @@
                 android:textStyle="bold" />
 
             <View
-                android:visibility="gone"
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="@android:color/darker_gray" />
 
             <TextView
-                android:visibility="gone"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

@@ -148,6 +148,7 @@ public class ProcessActivity extends AppCompatActivity {
         adapter = new ProcessAdapter(dataFix, ProcessActivity.this);
         loading = new OwnProgressDialog(ProcessActivity.this);
         rvLogs.setAdapter(adapter);
+        dataSet.clear();
 
         txPengirim.setText(getString(R.string.pengirim) + " : " + sessionManager.getPhone());
 
@@ -160,6 +161,7 @@ public class ProcessActivity extends AppCompatActivity {
 
         } else {
             pbLoading.setVisibility(View.VISIBLE);
+            handlerInterval.postDelayed(runnableIntervel, 1000);
 
         }
 
@@ -184,7 +186,7 @@ public class ProcessActivity extends AppCompatActivity {
 
                 try {
 
-                    dataSet.clear();
+//                    dataSet.clear();
 
                     JSONObject jo = new JSONObject(response);
                     JSONArray ja = jo.getJSONArray("data");
@@ -231,7 +233,6 @@ public class ProcessActivity extends AppCompatActivity {
 
                     if (id.equals("0")) {
 
-                        handlerInterval.postDelayed(runnableIntervel, 1000);
                         handler.postDelayed(runnable, DELAY.get(0));
 
                     } else {
@@ -273,8 +274,8 @@ public class ProcessActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
                 isGetData = false;
-
                 pbCenter.setVisibility(View.GONE);
+                handler.postDelayed(runnable, DELAY.get(0));
 
             }
 
@@ -421,7 +422,7 @@ public class ProcessActivity extends AppCompatActivity {
             INTERVAl++;
 
 //            if (POSISI < dataSet.size()) {
-//                handlerInterval.postDelayed(runnableIntervel, 1000);
+                handlerInterval.postDelayed(runnableIntervel, 1000);
 //            }
 
         }
@@ -435,6 +436,10 @@ public class ProcessActivity extends AppCompatActivity {
 
             Date oldDate = new Date(); // oldDate == current time
             Date newDate = new Date(oldDate.getTime() + TimeUnit.HOURS.toMillis(3)); // Adds 3 hours
+
+            Random rn = new Random();
+            int range = (DELAY.size() - 1) - 0 + 1;
+            int randomNum = rn.nextInt(range) + 0;
 
             AndLog.ShowLog("url", POSISI + " -- " + dataSet.size());
             if (POSISI < dataSet.size()) {
@@ -454,9 +459,6 @@ public class ProcessActivity extends AppCompatActivity {
                 txCount.setText(getString(R.string.count) + " : " + POSISI);
 
 
-                Random rn = new Random();
-                int range = (DELAY.size() - 1) - 0 + 1;
-                int randomNum = rn.nextInt(range) + 0;
                 handler.postDelayed(runnable, DELAY.get(randomNum));
             } else {
 //                pbLoading.setVisibility(View.GONE);
@@ -674,7 +676,6 @@ public class ProcessActivity extends AppCompatActivity {
                 }
             }
         });
-
 
     }
 }
