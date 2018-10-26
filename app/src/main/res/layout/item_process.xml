@@ -124,6 +124,7 @@
             android:background="@android:color/darker_gray" />
 
         <ImageButton
+            android:src="@drawable/ic_lokasi"
             android:id="@+id/imgLokasi"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

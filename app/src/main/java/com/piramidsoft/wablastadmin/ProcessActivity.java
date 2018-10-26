@@ -130,9 +130,13 @@ public class ProcessActivity extends AppCompatActivity {
                 DELAY.add(6000);
             } else {
                 DELAY.clear();
+//                DELAY.add(2000);
+//                DELAY.add(2500);
+//                DELAY.add(3000);
+
+                DELAY.add(1500);
                 DELAY.add(2000);
                 DELAY.add(2500);
-                DELAY.add(3000);
             }
 
         }
