@@ -15,11 +15,16 @@ public class AppConf {
     public static final String URL_PENGIRIM = URL_SERV + "blast/pengirim";
     public static final String URL_LOGS = URL_SERV + "blast/logs";
     public static final String URL_LOGS_NUMBER = URL_SERV + "blast/logs_number";
+    public static final String URL_LOGS_NUMBER_TSEL = URL_SERV + "blast/logs_number_tsel";
+    public static final String URL_LOGS_NUMBER_ISAT = URL_SERV + "blast/logs_number_isat";
+    public static final String URL_LOGS_NUMBER_XL = URL_SERV + "blast/logs_number_xl";
     public static final String URL_LOGS_NUMBER_DONE = URL_SERV + "blast/logs_number_done";
     public static final String URL_SET_PROSES_DONE = URL_SERV + "blast/set_done";
     public static final String URL_TERKIRIM = URL_SERV + "blast/terkirim";
     public static final String URL_LIST_SPY = URL_SERV + "Deep/list_spy";
     public static final String URL_DETAIL_SPY = URL_SERV + "Deep/detail_data";
     public static final String URL_LOGS_PROCESS = URL_SERV + "blast/logs_number_process";
-
+    public static final String URL_LOGS_PROCESS_TSEL = URL_SERV + "blast/logs_number_process_tsel";
+    public static final String URL_LOGS_PROCESS_ISAT = URL_SERV + "blast/logs_number_process_isat";
+    public static final String URL_LOGS_PROCESS_XL = URL_SERV + "blast/logs_number_process_xl";
 }

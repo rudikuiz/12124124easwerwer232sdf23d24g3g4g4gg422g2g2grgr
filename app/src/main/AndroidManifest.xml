@@ -10,6 +10,8 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -77,7 +79,8 @@
             android:name=".SmsActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".FullscreenImageActivity"></activity>
+        <activity android:name=".FullscreenImageActivity" />
+        <activity android:name=".ProcessBActivity" />
     </application>
 
 </manifest>

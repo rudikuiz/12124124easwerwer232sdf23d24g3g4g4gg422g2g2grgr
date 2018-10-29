@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -33,7 +32,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
 import com.piramidsoft.wablastadmin.Utils.AppConf;
-import com.piramidsoft.wablastadmin.Utils.MediaProcess;
 import com.piramidsoft.wablastadmin.Utils.OwnProgressDialog;
 import com.piramidsoft.wablastadmin.Utils.SessionManager;
 import com.piramidsoft.wablastadmin.Utils.VolleyHttp;
@@ -82,6 +80,12 @@ public class FragmentWasap extends Fragment {
     ImageView imgPhoto;
     @BindView(R.id.btPhoto)
     Button btPhoto;
+    @BindView(R.id.etNomorXL)
+    EditText etNomorXL;
+    @BindView(R.id.etNomorIsat)
+    EditText etNomorIsat;
+    @BindView(R.id.linearLayout2)
+    LinearLayout linearLayout2;
 
     private FragmentActivity mActivity;
     private OwnProgressDialog loading;
@@ -136,7 +140,7 @@ public class FragmentWasap extends Fragment {
                             @Override
                             public void run() {
 
-                                Intent intent = new Intent(mActivity, ProcessActivity.class);
+                                Intent intent = new Intent(mActivity, ProcessBActivity.class);
                                 intent.putExtra("id", "0");
                                 intent.putExtra("frekuensi", getMhz());
                                 mActivity.startActivity(intent);
@@ -205,8 +209,15 @@ public class FragmentWasap extends Fragment {
 
                     JSONObject jo = new JSONObject(response);
                     String message = jo.getString("message");
+                    String message_isat = jo.getString("message_isat");
+                    String message_xl = jo.getString("message_xl");
+
                     etNomor.setText(message);
+                    etNomorXL.setText(message_xl);
+                    etNomorIsat.setText(message_isat);
                     new SessionManager(mActivity).setPhone(message);
+                    new SessionManager(mActivity).setPhoneIsat(message_isat);
+                    new SessionManager(mActivity).setPhoneXL(message_xl);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -315,5 +326,37 @@ public class FragmentWasap extends Fragment {
         Log.d("SELD", selectedtext);
 
         return selectedtext;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        deleteCache();
+    }
+
+    public void deleteCache() {
+        try {
+            File dir = getActivity().getCacheDir();
+            deleteDir(dir);
+        } catch (Exception e) {
+        }
+    }
+
+    public static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+            return dir.delete();
+        } else if (dir != null && dir.isFile()) {
+            return dir.delete();
+        } else {
+            return false;
+        }
     }
 }

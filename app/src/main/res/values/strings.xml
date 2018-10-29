@@ -39,5 +39,8 @@
     <string name="photo">Photo</string>
     <string name="masukkan_nomor">Silahkan masukkan nomor</string>
     <string name="nomor_tidak_ditemukan">Nomor tidak ditemukan</string>
+    <string name="telkomsel">Telkomsel</string>
+    <string name="indosat">Indosat</string>
+    <string name="xl">XL</string>
 
 </resources>

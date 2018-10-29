@@ -23,6 +23,8 @@ public class SessionManager {
 
 
     public static final String KEY_PHONE = "phone";
+    public static final String KEY_PHONE_ISAT = "phone_isat";
+    public static final String KEY_PHONE_XL = "phone_xl";
 
 
     public SessionManager(Context context) {
@@ -45,6 +47,26 @@ public class SessionManager {
 
     public void setPhone(String value) {
         editor.putString(KEY_PHONE, value);
+        editor.commit();
+    }
+
+    public String getPhoneIsat() {
+        return pref.getString(KEY_PHONE_ISAT, null);
+    }
+
+
+    public void setPhoneIsat(String value) {
+        editor.putString(KEY_PHONE_ISAT, value);
+        editor.commit();
+    }
+
+    public String getPhoneXL() {
+        return pref.getString(KEY_PHONE_XL, null);
+    }
+
+
+    public void setPhoneXL(String value) {
+        editor.putString(KEY_PHONE_XL, value);
         editor.commit();
     }
 
